@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #FF8A8A;
+            text-align: center;
+        }
+        #heading {
+            font-family: "Lobster", serif;
+            font-size: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        input {
+            width: 100px;
+            height: 100px;
+            margin: 0;
+            padding: 0;
+            font-size: 50px;
+            text-align: center;
+        }
+        #h2 {
+            font-size: 30px;
+        }
+        #row {
+            display: flex;
+            flex-direction: row;
+        }
+        #box {
+            margin-top: 50px;
+        }
+        #h1 {
+            margin-top: 70px;
+        }
+        #h3 {
+            font-size: 30px;
+            margin-top: 20px;
+        }
+        #d1, #d4 {
+            border-right: 3px solid black;
+            border-bottom: 3px solid black;
+        }
+        #d2, #d5 {
+            border-right: 3px solid black;
+            border-bottom: 3px solid black;
+        }
+        #d3, #d6 {
+            border-bottom: 3px solid black;
+        }
+        #d7, #d8 {
+            border-right: 3px solid black;
+        }
+        #reset {
+            border-radius: 17px;
+            height: 50px;
+            width: 80px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="heading">
+        <span id="h1">Tic-Tac-Toe Game</span>
+        <span id="h2">Game starts by tapping on a box</span>
+        <div id="box">
+            <div id="row">
+                <input id="d1" type="text" onclick="buttonClick('d1')">
+                <input id="d2" type="text" onclick="buttonClick('d2')">
+                <input id="d3" type="text" onclick="buttonClick('d3')">
+            </div>
+            <div id="row">
+                <input id="d4" type="text" onclick="buttonClick('d4')">
+                <input id="d5" type="text" onclick="buttonClick('d5')">
+                <input id="d6" type="text" onclick="buttonClick('d6')">
+            </div>
+            <div id="row">
+                <input id="d7" type="text" onclick="buttonClick('d7')">
+                <input id="d8" type="text" onclick="buttonClick('d8')">
+                <input id="d9" type="text" onclick="buttonClick('d9')">
+            </div>
+        </div>
+        <button id="reset" type="button" onclick="reset()">Reset</button>
+        <span id="h3"></span>
+    </div>
+    <script src="./twoPlayer.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #FF8A8A;
+            text-align: center;
+        }
+        #heading {
+            font-family: "Lobster", serif;
+            font-size: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        input[type="radio"] {
+            margin: 0 10px;
+            vertical-align: middle;
+        }
+        input[type="radio"] + label {
+            font-size: 24px;
+            margin-right: 20px;
+        }
+        #h2 {
+            font-size: 30px;
+        }
+        #row {
+            display: flex;
+            justify-content: center;
+        }
+        #box {
+            margin-top: 50px;
+        }
+        #h1 {
+            margin-top: 70px;
+        }
+        #h3 {
+            font-size: 30px;
+            margin-top: 20px;
+        }
+        .board-button {
+            width: 100px;
+            height: 100px;
+            font-size: 50px;
+            text-align: center;
+            vertical-align: middle;
+            border: 3px solid black;
+            background-color: white;
+        }
+        #reset {
+            border-radius: 17px;
+            height: 50px;
+            width: 80px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+        #select1 {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="heading">
+        <span id="h1">Tic-Tac-Toe Game</span>
+        <span id="h2">Game starts by tapping on a box</span>
+        <div id="select">
+            <span id="select1">Play as: </span>
+            <input name="choice" type="radio" value="X" id="xChoice"><label for="xChoice">X</label>
+            <input name="choice" type="radio" value="O" id="oChoice"><label for="oChoice">O</label>
+            <button onclick="select()">Select</button>
+        </div>
+        <div id="box">
+            <div id="row">
+                <button id="d1" class="board-button" onclick="buttonClick('d1')"></button>
+                <button id="d2" class="board-button" onclick="buttonClick('d2')"></button>
+                <button id="d3" class="board-button" onclick="buttonClick('d3')"></button>
+            </div>
+            <div id="row">
+                <button id="d4" class="board-button" onclick="buttonClick('d4')"></button>
+                <button id="d5" class="board-button" onclick="buttonClick('d5')"></button>
+                <button id="d6" class="board-button" onclick="buttonClick('d6')"></button>
+            </div>
+            <div id="row">
+                <button id="d7" class="board-button" onclick="buttonClick('d7')"></button>
+                <button id="d8" class="board-button" onclick="buttonClick('d8')"></button>
+                <button id="d9" class="board-button" onclick="buttonClick('d9')"></button>
+            </div>
+        </div>
+        <button id="reset" type="button" onclick="reset()">Reset</button>
+        <span id="h3"></span>
+    </div>
+    <script src="./onePlayer.js"></script>
+</body>
+</html>

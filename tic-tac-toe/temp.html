@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #FF8A8A;
+            text-align: center;
+        }
+        #heading {
+            font-family: "Lobster", serif;
+            font-size: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        input {
+            width: 100px;
+            height: 100px;
+            margin: 0;
+            padding: 0;
+            font-size: 50px;
+            text-align: center;
+        }
+        #h2 {
+            font-size: 30px;
+        }
+        #row {
+            display: flex;
+            flex-direction: row;
+        }
+        #box {
+            margin-top: 50px;
+        }
+        #h1 {
+            margin-top: 70px;
+        }
+        #h3 {
+            font-size: 30px;
+            margin-top: 20px;
+        }
+        #d1, #d4 {
+            border-right: 3px solid black;
+            border-bottom: 3px solid black;
+        }
+        #d2, #d5 {
+            border-right: 3px solid black;
+            border-bottom: 3px solid black;
+        }
+        #d3, #d6 {
+            border-bottom: 3px solid black;
+        }
+        #d7, #d8 {
+            border-right: 3px solid black;
+        }
+        #reset {
+            border-radius: 17px;
+            height: 50px;
+            width: 80px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="heading">
+        <span id="h1">Tic-Tac-Toe Game</span>
+        <span id="h2">You vs Computer</span>
+        <div id="box">
+            <div id="row">
+                <input id="d1" type="text" onclick="buttonClick('d1')">
+                <input id="d2" type="text" onclick="buttonClick('d2')">
+                <input id="d3" type="text" onclick="buttonClick('d3')">
+            </div>
+            <div id="row">
+                <input id="d4" type="text" onclick="buttonClick('d4')">
+                <input id="d5" type="text" onclick="buttonClick('d5')">
+                <input id="d6" type="text" onclick="buttonClick('d6')">
+            </div>
+            <div id="row">
+                <input id="d7" type="text" onclick="buttonClick('d7')">
+                <input id="d8" type="text" onclick="buttonClick('d8')">
+                <input id="d9" type="text" onclick="buttonClick('d9')">
+            </div>
+        </div>
+        <button id="reset" type="button" onclick="reset()">Reset</button>
+        <span id="h3"></span>
+    </div>
+    <script>
+        var player = ''; // Player symbol (X or O)
+        var computer = ''; // Computer symbol (X or O)
+        var flag = 1; // Player's turn
+
+        // Ask the player to choose X or O
+        function chooseSymbol() {
+            player = prompt("Do you want to play as 'X' or 'O'?").toUpperCase();
+            if (player !== 'X' && player !== 'O') {
+                alert("Invalid choice! Defaulting to X.");
+                player = 'X';
+            }
+            computer = (player === 'X') ? 'O' : 'X';
+            document.getElementById("h3").innerHTML = "You are " + player + ". It's your turn.";
+        }
+
+        function checkWin() {
+            var b1 = document.getElementById("d1").value;
+            var b2 = document.getElementById("d2").value;
+            var b3 = document.getElementById("d3").value;
+            var b4 = document.getElementById("d4").value;
+            var b5 = document.getElementById("d5").value;
+            var b6 = document.getElementById("d6").value;
+            var b7 = document.getElementById("d7").value;
+            var b8 = document.getElementById("d8").value;
+            var b9 = document.getElementById("d9").value;
+
+            if ((b1 == player && b2 == player && b3 == player) || 
+                (b4 == player && b5 == player && b6 == player) || 
+                (b7 == player && b8 == player && b9 == player) || 
+                (b1 == player && b4 == player && b7 == player) || 
+                (b2 == player && b5 == player && b8 == player) || 
+                (b3 == player && b6 == player && b9 == player) || 
+                (b1 == player && b5 == player && b9 == player) || 
+                (b3 == player && b5 == player && b7 == player)) {
+                document.getElementById("h3").innerHTML = "Player " + player + " wins!";
+                disableAllButtons();
+                return;
+            } else if ((b1 == computer && b2 == computer && b3 == computer) || 
+                       (b4 == computer && b5 == computer && b6 == computer) || 
+                       (b7 == computer && b8 == computer && b9 == computer) || 
+                       (b1 == computer && b4 == computer && b7 == computer) || 
+                       (b2 == computer && b5 == computer && b8 == computer) || 
+                       (b3 == computer && b6 == computer && b9 == computer) || 
+                       (b1 == computer && b5 == computer && b9 == computer) || 
+                       (b3 == computer && b5 == computer && b7 == computer)) {
+                document.getElementById("h3").innerHTML = "Computer " + computer + " wins!";
+                disableAllButtons();
+                return;
+            } else if (b1 && b2 && b3 && b4 && b5 && b6 && b7 && b8 && b9) {
+                document.getElementById("h3").innerHTML = "It's a tie!";
+                return;
+            }
+            if (flag == 0) {
+                document.getElementById("h3").innerHTML = "Computer's turn";
+                setTimeout(computerMove, 500); // Computer makes move after 500ms delay
+            }
+        }
+
+        function disableAllButtons() {
+            var inputs = document.querySelectorAll("input");
+            inputs.forEach(input => input.disabled = true);
+        }
+
+        function reset() {
+            location.reload();
+        }
+
+        function buttonClick(id) {
+            var button = document.getElementById(id);
+            if (flag == 1) {
+                button.value = player;
+                button.disabled = true;
+                flag = 0;
+                checkWin();
+            }
+        }
+
+        function computerMove() {
+            var availableButtons = [];
+            for (var i = 1; i <= 9; i++) {
+                var button = document.getElementById("d" + i);
+                if (!button.value) {
+                    availableButtons.push(button);
+                }
+            }
+            if (availableButtons.length > 0) {
+                var randomButton = availableButtons[Math.floor(Math.random() * availableButtons.length)];
+                randomButton.value = computer;
+                randomButton.disabled = true;
+                flag = 1;
+                checkWin();
+            }
+        }
+
+        window.onload = function() {
+            chooseSymbol();
+        }
+    </script>
+</body>
+</html>

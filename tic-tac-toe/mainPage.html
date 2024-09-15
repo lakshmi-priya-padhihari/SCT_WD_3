@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tik-tac-toe game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background-color:#FF8A8A;
+        }
+        #box{
+            display:flex;
+            flex-direction:column;
+            text-align:center;
+            justify-content: center;
+            align-items: center;
+            margin-top:90px;
+        }
+        #text1{
+            font-family:Merriweather;
+            font-weight:bold;
+            font-size:50px;
+            margin:30px 0px 30px 0px;
+        }
+        #text2{
+            font-family:"Lobster",serif;
+            font-weight:bold;
+            font-size:60px;
+            margin:30px 0px 30px 0px;
+        }
+        #text3{
+            font-family:serif;
+            font-weight:bold;
+            font-size:40px;
+        }
+        img{
+            margin:20px 0px 20px 0px;
+        }
+        button{
+            border-radius:17px;
+            height:40px;
+            width:200px;
+            margin-top:30px;
+            font-size:20px;
+            transition: background-color .2s,background-position .2s;
+            background-color:#CCE0AC;
+        }
+
+      button:active,
+      button:focus {
+        outline: none;
+      }
+
+      button:hover {
+        background-position: -20px -20px;
+      }
+
+      button:focus:not(:active) {
+        box-shadow: #F0EAAC 0 0 0 .125em;
+      }
+
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="heading-1"><span id="text1"> Welcome to </span></div>
+        <div id="heading-2"></span><span id="text2">Tic-Tac-Toe Game</span></div>
+        <img src="./photos/front pic.jpg" alt="tic-tac-toe  game" width="300px" height="300px">
+        <div><span id="text3">Click! the button below to start the game</span></div>
+        <a href="./2ndpage.html"><button class="">Start</button></a>
+    </div>
+</body>
+</html>
